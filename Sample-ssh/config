@@ -1,0 +1,10 @@
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
+UseKeychain yes
+IdentityFile ~/.ssh/id_rsa
+Host localhost
+    Hostname localhost
+    User root
+    IdentityFile ~/.ssh/docker_dev
+
