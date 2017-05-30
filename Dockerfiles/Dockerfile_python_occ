@@ -1,0 +1,13 @@
+FROM continuumio/anaconda3
+
+COPY Install-Files/sshd_config Install-Files/ssh-install.sh /root/
+COPY Install-Files/pip.conf /root/.config/pip/pip.conf
+
+ARG AUTH_KEY
+
+# python path will be: /opt/conda/envs/pythonocc/bin/python
+
+#RUN conda create -n pythonocc -c pythonocc -c oce pythonocc-core==0.17.3 python=3
+RUN conda create -y -n pythonocc -c pythonocc -c dlr-sc pythonocc-core==0.17.2 python=3
+
+RUN /root/ssh-install.sh
