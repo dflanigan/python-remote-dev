@@ -36,7 +36,7 @@ an ssh key file in your /.ssh directory named `docker-dev`.
 - Create the `docker_dev` key:
 
 ```
-ssh-keygen -t rsa -f ~/.ssh/docker-dev -N ""
+ssh-keygen -t rsa -f ~/.ssh/docker_dev -N ""
 ```
 
 - Configure your .ssh/config to use the `docker_dev` key:
