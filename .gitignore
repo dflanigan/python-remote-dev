@@ -98,4 +98,5 @@ ENV/
 # Pycharm project dir
 .idea
 
+Install-Files/bash_profile
 
