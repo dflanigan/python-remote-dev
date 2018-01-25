@@ -1,5 +1,4 @@
 FROM continuumio/anaconda3
-
 COPY Install-Files/sshd_config Install-Files/ssh-install.sh /root/
 COPY Install-Files/pip.conf /root/.config/pip/pip.conf
 
