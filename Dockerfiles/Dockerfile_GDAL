@@ -1,0 +1,22 @@
+FROM python:latest
+
+COPY Install-Files/sshd_config Install-Files/ssh-install.sh /root/
+COPY Install-Files/pip.conf /root/.config/pip/pip.conf
+COPY Install-Files/bash_profile /root/.bash_profile
+
+RUN echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >> /etc/apt/sources.list
+RUN apt-get update
+
+RUN apt-get install -t unstable -y libgdal-dev
+RUN apt-get install -t unstable -y gdal-bin
+
+RUN pip install numpy
+
+ENV CPLUS_INCLUDE_PATH /usr/include/gdal
+ENV C_INCLUDE_PATH /usr/include/gdal
+
+Run pip install gdal
+
+ARG AUTH_KEY
+
+RUN /root/ssh-install.sh
