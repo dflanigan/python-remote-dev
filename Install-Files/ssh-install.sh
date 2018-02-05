@@ -12,3 +12,4 @@ mkdir -p /etc/ssh
 mv /root/sshd_config /etc/ssh/sshd_config
 
 apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install openssh-server
+
