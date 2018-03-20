@@ -1,0 +1,24 @@
+FROM python:latest
+
+COPY Install-Files/sshd_config Install-Files/ssh-install.sh /root/
+COPY Install-Files/pip.conf /root/.config/pip/pip.conf
+COPY Install-Files/bash_profile /root/.bash_profile
+
+ARG AUTH_KEY
+
+RUN /root/ssh-install.sh
+RUN apt-get -y install autoconf automake libtool curl make g++ unzip
+RUN curl -L https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-python-3.4.1.tar.gz | tar zx
+RUN cd protobuf-3.4.1 && ./configure
+RUN cd protobuf-3.4.1 && make
+RUN cd protobuf-3.4.1 && make install
+RUN cd protobuf-3.4.1 && ldconfig
+
+RUN cd protobuf-3.4.1/python && python setup.py build
+RUN cd protobuf-3.4.1/python && python setup.py install
+
+
+
+
+
+

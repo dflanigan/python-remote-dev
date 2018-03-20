@@ -9,3 +9,4 @@ ARG AUTH_KEY
 RUN /root/ssh-install.sh
 
 RUN conda install -y -c conda-forge gdal
+RUN apt-get -y install gcc
