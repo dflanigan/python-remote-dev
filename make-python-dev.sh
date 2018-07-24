@@ -29,6 +29,9 @@ fi
 
 sed "s/CONTAINER_NAME/$docker_name/g" Install-Files/bash_profile_template > Install-Files/bash_profile
 
+sed "s#HOME#$HOME#g" Install-Files/install-emacs-template.sh > Install-Files/install-emacs.sh
+chmod a+x Install-Files/install-emacs.sh
+
 #docker build -t your-base-image . # optional if you want this in here
 
 docker build -f "$docker_file" \
@@ -39,5 +42,10 @@ docker build -f "$docker_file" \
 docker run -d -p "127.0.0.1:$ssh_port:5022" \
            --name $docker_name \
            -v $HOME:$HOME "$docker_name_prefix:latest" /usr/sbin/sshd -D # run sshd without detach
+
+# docker run -d -p "127.0.0.1:$ssh_port:5022" \
+#            -p "127.0.0.1:8888:8888"\
+#            --name $docker_name \
+#            -v $HOME:$HOME "$docker_name_prefix:latest" /usr/sbin/sshd -D # run sshd without detach
 
  

@@ -99,4 +99,5 @@ ENV/
 .idea
 
 Install-Files/bash_profile
+Install-Files/install-emacs.sh
 

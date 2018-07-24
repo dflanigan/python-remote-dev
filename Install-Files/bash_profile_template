@@ -3,3 +3,9 @@ export PS1="CONTAINER_NAME:\w>"
 
 
 alias ls='ls -CF --color'
+
+if [ -e /opt/conda/etc/profile.d/conda.sh ]; then
+   . /opt/conda/etc/profile.d/conda.sh
+   conda activate base
+fi
+
